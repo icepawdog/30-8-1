@@ -33,4 +33,4 @@ INSERT INTO users (id, name) VALUES (0, 'admin'), (1, 'user'), (2,'user2');
 
 INSERT INTO labels (id, name) VALUES (1, 'крутая задача'), (2, 'легкая задача');
 
-INSERT INTO tasks (author_id, title) VALUES (4, 'срочно'), (2, 'не срочно');
+INSERT INTO tasks (author_id, title) VALUES (4, 'срочно', 'содержимое'), (2, 'не срочно'. 'содержимое 2');
