@@ -120,11 +120,18 @@ func (s *Storage) UpdateTask(t Task) error {
 
 func (s *Storage) TasksbyLables(lables string) ([]Task, error) {
 	rows, err := s.db.Query(context.Background(), `
-	SELECT tasks.id, tasks.title, labels.name AS labels
+	SELECT 
+			tasks.id,
+			opened,
+			closed,
+			author_id,
+			assigned_id,
+			title,
+			tasks.content
 	FROM tasks
 	JOIN tasks_labels ON tasks_labels.task_id = tasks.id
 	JOIN labels ON tasks_labels.label_id = labels.id
-	WHERE labels.name = '$1'
+	WHERE labels.name = $1
 	ORDER BY id;
 	`,
 		lables,
